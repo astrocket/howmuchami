@@ -1,0 +1,70 @@
+version: '3'
+volumes:
+  postgres_data: {}
+  log_data: {}
+  bundle_data: {}
+  redis_data: {}
+services:
+  rails:
+    build:
+      context: .
+      dockerfile: ./docker/rails/Dockerfile
+      args: &arguments
+        - APP_NAME=/howmuchami
+    restart: always
+    command: ./docker/rails/run.sh
+    links:
+      - db
+      - redis
+      - sidekiq
+    environment:
+      - RAILS_ENV=production
+      - RAILS_LOG_TO_STDOUT=true
+      - RAILS_SERVE_STATIC_FILES=true
+    ports:
+      - 3000
+    volumes: &volumes
+      - log_data:/howmuchami/log
+      - bundle_data:/howmuchami/bundle
+  sidekiq:
+    build:
+      context: .
+      dockerfile: ./docker/sidekiq/Dockerfile
+      args: *arguments
+    restart: always
+    command: ./docker/sidekiq/run.sh
+    links:
+      - db
+      - redis
+    environment:
+      - RAILS_ENV=production
+      - RAILS_LOG_TO_STDOUT=true
+    volumes: *volumes
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+      args: *arguments
+    restart: always
+    links:
+      - rails
+    environment:
+      - VIRTUAL_HOST=howmuchami.com
+      - LETSENCRYPT_HOST=howmuchami.com
+      - LETSENCRYPT_EMAIL=astrocket.dev@gmail.com
+    ports:
+      - 80
+    volumes:
+      - log_data:/howmuchami/log
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+  redis:
+    image: redis
+    volumes:
+      - redis_data:/data
+networks:
+  default:
+    external:
+      name: webproxy
