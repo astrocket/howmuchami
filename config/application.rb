@@ -31,5 +31,7 @@ module Howmuchami
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+  # Use sidekiq to process Active Jobs (e.g. ActionMailer's deliver_later)
+  config.active_job.queue_adapter = :sidekiq
   end
 end
