@@ -14,22 +14,17 @@ function Navigation() {
           <A href="/"
              className="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4"
              data-tippy-content="@twitter_handle">
-            react home
+            계산기
           </A>
           <A href="/about"
              className="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4"
              data-tippy-content="@twitter_handle">
-            react about
+            만든이
           </A>
-          <a href="/app"
-             className="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4"
-             data-tippy-content="@twitter_handle">
-            rails ssr
-          </a>
           <a
             className="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4"
             data-tippy-content="@twitter_handle" href="https://github.com/astrocket/rails-template">
-            github
+            Github
           </a>
         </div>
       </div>

@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="leading-normal tracking-normal text-gray-900">
       <Navigation/>
-      <div className="h-screen pb-14 bg-right bg-cover">
+      <div className="pb-14 bg-right bg-cover">
         {routeResult || <h1>404 on React SPA</h1>}
       </div>
     </div>
