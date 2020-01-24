@@ -6,10 +6,6 @@
     <%= csp_meta_tag %>
 
     <%= javascript_pack_tag  'stylesheets', media: 'all' %>
-    <%= javascript_include_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
-
-  <body>
-    <%= yield %>
-  </body>
 </html>
