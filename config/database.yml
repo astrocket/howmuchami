@@ -13,7 +13,4 @@ test:
 
 production:
   <<: *default
-  username: postgres
-  host: db
-  database: howmuchami_production
-  password: 
+  url: <%= Rails.application.credentials.production[:database_url] %>

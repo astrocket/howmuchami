@@ -16,7 +16,7 @@ function Navigation() {
           howmuchami
         </a>
         <div className="flex w-1/2 justify-end content-center">
-          <A href="/home"
+          <A href="/"
              className="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4"
              data-tippy-content="@twitter_handle">
             react home
@@ -24,7 +24,7 @@ function Navigation() {
           <A href="/about"
              className="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4"
              data-tippy-content="@twitter_handle">
-            rails about
+            react about
           </A>
           <a href="/app"
              className="inline-block text-blue-300 no-underline hover:text-indigo-800 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4"
