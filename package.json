@@ -7,13 +7,14 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
+    "@tailwindcss/custom-forms": "^0.2.1",
+    "axios": "^0.19.2",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "hookrouter": "^1.2.3",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "tailwindcss": "^1.1.4",
-    "hookrouter": "^1.2.3",
-    "axios": "^0.19.2"
+    "tailwindcss": "^1.1.4"
   },
   "version": "0.1.0",
   "devDependencies": {
