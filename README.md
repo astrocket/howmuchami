@@ -24,7 +24,7 @@ https://github.com/astrocket/rails-template 이거 기반으로 프로젝트를 
 - 테마 : https://www.tailwindtoolbox.com
 
 ## Ref
-국세청 근로소득 간이 세액표 : https://www.nts.go.kr/support/support_03_etc01.asp
-Jobis 4대 보험 블로그 글 : https://bit.ly/3aFgWW6
-디자인 템플릿 : https://www.tailwindtoolbox.com/templates/app-landing-page
-폼 UI : https://tailwindcss-custom-forms.netlify.com
+- 국세청 근로소득 간이 세액표 : https://www.nts.go.kr/support/support_03_etc01.asp
+- Jobis 4대 보험 블로그 글 : https://bit.ly/3aFgWW6
+- 디자인 템플릿 : https://www.tailwindtoolbox.com/templates/app-landing-page
+- 폼 UI : https://tailwindcss-custom-forms.netlify.com
