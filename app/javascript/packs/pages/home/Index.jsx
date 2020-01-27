@@ -271,6 +271,10 @@ function Index() {
             <a href="https://www.tailwindtoolbox.com/templates/app-landing-page" target="_blank"
                className="underline text-gray-500 hover:text-yellow-777 text-sm">디자인 템플릿</a>
           </li>
+          <li>
+            <a href="https://tailwindcss-custom-forms.netlify.com" target="_blank"
+               className="underline text-gray-500 hover:text-yellow-777 text-sm">폼 UI</a>
+          </li>
         </ul>
       </div>
     </div>
