@@ -201,12 +201,7 @@ function Index() {
                 <input className="form-input mt-1 block w-full"
                        type="number"
                        value={projectDays}
-                       onChange={(e) => {
-                         const days = parseInt(e.target.value);
-                         if (days > 0) {
-                           setProjectDays(days)
-                         }
-                       }}/>
+                       onChange={(e) => setProjectDays(parseInt(e.target.value))}/>
               </label>
             </div>
           </div>
