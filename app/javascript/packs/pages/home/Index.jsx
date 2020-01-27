@@ -62,7 +62,7 @@ function Index() {
       <div className="pt-12 md:pt-24 px-6 flex flex-wrap flex-col md:flex-row items-start">
         <div className="w-full lg:w-1/2 lg:pr-6 border-b lg:border-b-0 mb-6 lg:mb-0 pb-6 lg:pb-0">
           <div className="flex flex-wrap -mx-3 mb-4">
-            <div className="w-1/2 px-3 mb-4 md:mb-0">
+            <div className="w-full lg:w-1/2 px-3 mb-4 md:mb-0">
               <label className="block">
                 <span className="text-gray-700">계약 연봉 (만원)</span>
                 <input className="form-input mt-1 block w-full"
@@ -72,7 +72,7 @@ function Index() {
                        placeholder="4500"/>
               </label>
             </div>
-            <div className="w-1/2 px-3 mb-4 md:mb-0">
+            <div className="w-full lg:w-1/2 px-3 mb-4 md:mb-0">
               <label className="block">
                 <span className="text-gray-700">연간 인센티브 (만원)</span>
                 <input className="form-input mt-1 block w-full"
@@ -85,7 +85,7 @@ function Index() {
           </div>
 
           <div className="flex flex-wrap -mx-3 mb-4">
-            <div className="w-1/2 px-3 mb-6 md:mb-0">
+            <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
               <label className="block">
                 <span className="text-gray-700">월 비과세액[1] (만원)</span>
                 <input className="form-input mt-1 block w-full"
@@ -95,7 +95,7 @@ function Index() {
                        placeholder="4500"/>
               </label>
             </div>
-            <div className="w-1/2 px-3 mb-6 md:mb-0">
+            <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
               <label className="block">
                 <span className="text-gray-700">연간 복지금[2] (만원)</span>
                 <input className="form-input mt-1 block w-full"
@@ -108,7 +108,7 @@ function Index() {
           </div>
 
           <div className="flex flex-wrap -mx-3 mb-4">
-            <div className="w-1/2 px-3 mb-4 md:mb-0">
+            <div className="w-full lg:w-1/2 px-3 mb-4 md:mb-0">
               <label className="block">
                 <span className="text-gray-700">주 평균시간 (야근포함 실 근로시간)</span>
                 <input className="form-input mt-1 block w-full"
@@ -118,7 +118,7 @@ function Index() {
                        placeholder="40"/>
               </label>
             </div>
-            <div className="w-1/2 px-3 mb-6 md:mb-0">
+            <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
               <label className="block">
                 <span className="text-gray-700">연간 휴가일 (일수)</span>
                 <input className="form-input mt-1 block w-full"
@@ -145,13 +145,13 @@ function Index() {
           </label>
 
           <div className="flex flex-wrap -mx-3 mb-4">
-            <div className="w-1/2 px-3 mb-6 md:mb-0">
+            <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
               <label className="block">
                 <span className="text-gray-700">세후 시급(인센티브 포함)</span>
                 <input readOnly className="form-input mt-1 block w-full" placeholder="4500" value={expandManCurrency(actualHourRate)}/>
               </label>
             </div>
-            <div className="w-1/2 px-3 mb-6 md:mb-0">
+            <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
               <label className="block">
                 <span className="text-gray-700">총 근로시간(연차, 공휴일 제외)</span>
                 <input readOnly className="form-input mt-1 block w-full" placeholder="4500" value={`${parseInt(totalWorkingHours)}시간`}/>
@@ -187,7 +187,7 @@ function Index() {
       <div className="pt-12 md:pt-24 px-6 flex flex-wrap flex-col md:flex-row items-start">
         <div className="w-full lg:w-1/2 lg:pr-6 border-b lg:border-b-0 mb-6 lg:mb-0 pb-6 lg:pb-0">
           <div className="flex flex-wrap -mx-3 mb-4">
-            <div className="w-1/2 px-3 mb-4 md:mb-0">
+            <div className="w-full lg:w-1/2 px-3 mb-4 md:mb-0">
               <label className="block">
                 <span className="text-gray-700">기준 시급</span>
                 <input className="form-input mt-1 block w-full"
@@ -195,7 +195,7 @@ function Index() {
                        value={expandManCurrency(freeHourRate)}/>
               </label>
             </div>
-            <div className="w-1/2 px-3 mb-4 md:mb-0">
+            <div className="w-full lg:w-1/2 px-3 mb-4 md:mb-0">
               <label className="block">
                 <span className="text-gray-700">예상 소요 일 (일 7시간 작업)</span>
                 <input className="form-input mt-1 block w-full"
