@@ -370,9 +370,13 @@ module.exports = {
             '75': '0.75',
             '100': '1',
         },
-        fill: {
-            current: 'currentColor',
-        },
+        // fill: {
+        //     current: 'currentColor',
+        // },
+        fill: theme => ({
+            ...theme('colors'),
+            default: theme('colors.gray.300', 'currentColor'),
+        }),
         stroke: {
             current: 'currentColor',
         },
@@ -465,7 +469,7 @@ module.exports = {
         inset: ['responsive'],
         resize: ['responsive'],
         boxShadow: ['responsive', 'hover', 'focus'],
-        fill: [],
+        fill: ['hover', 'focus'],
         stroke: [],
         tableLayout: ['responsive'],
         textAlign: ['responsive'],

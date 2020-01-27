@@ -10,3 +10,7 @@
 .gradient {
   background: linear-gradient(90deg, #ffcd00 0%, #48bb78 100%);
 }
+
+.click-transition {
+  transition: red 1000ms step-end;
+}

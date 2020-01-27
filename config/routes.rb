@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   namespace :api do
     get '/home/index' => 'home#index'
+    resources :likes, param: :name, format: :json do
+      member do
+        post :up
+      end
+    end
   end
   
   scope :app do
