@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>howmuchami</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <%= javascript_pack_tag  'stylesheets', media: 'all' %>
+    <%= render partial: "layouts/shared/head" %>
     <%= javascript_include_tag 'application', media: 'all' %>
   </head>
 

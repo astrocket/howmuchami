@@ -2,6 +2,7 @@ import React from "react";
 import {useRoutes, A} from "hookrouter";
 import routes from "./routes";
 import Navigation from "./components/Navigation.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   const routeResult = useRoutes(routes);
@@ -14,6 +15,7 @@ function App() {
           <span className="text-3xl">없는 페이지 입니다.</span>
         </div>}
       </div>
+      <Footer/>
     </div>
   );
 }

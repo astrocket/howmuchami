@@ -6,3 +6,7 @@
 @import "components/forms";
 
 @tailwind utilities;
+
+.gradient {
+  background: linear-gradient(90deg, #ffcd00 0%, #48bb78 100%);
+}
