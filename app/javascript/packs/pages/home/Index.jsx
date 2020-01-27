@@ -26,7 +26,7 @@ function Index() {
   const [projectPrice, setProjectPrice] = useState("interesting");
 
   useEffect(() => {
-    const tax = new Tax(yearIncome + welfareIncome, monthTaxFree * 12);
+    const tax = new Tax((yearIncome || 0) + (welfareIncome || 0), (monthTaxFree || 0) * 12);
     setCurrentTax(tax);
 
     return () => {
@@ -35,10 +35,10 @@ function Index() {
   }, [yearIncome, welfareIncome, monthTaxFree, weeklyHours]);
 
   useEffect(() => {
-    const totalVacation = vacationDays + nationalVacations;
+    const totalVacation = (vacationDays || 0) + nationalVacations;
     const yearHours = (365 / 7 * weeklyHours) - (totalVacation * 8);
-    const incentivisedIncome = (incentiveIncome * 0.4) + currentTax.netIncome;
-    const incomePerHour = incentivisedIncome / yearHours;
+    const incentivisedIncome = ((incentiveIncome || 0) * 0.4) + currentTax.netIncome;
+    const incomePerHour = incentivisedIncome / (yearHours || 1);
 
     setTotalWorkingHours(yearHours);
     setActualHourRate(incomePerHour);
@@ -79,7 +79,7 @@ function Index() {
                        type="number"
                        value={incentiveIncome}
                        onChange={(e) => setIncentiveIncome(parseInt(e.target.value))}
-                       placeholder="4500"/>
+                       placeholder="300"/>
               </label>
             </div>
           </div>
@@ -92,7 +92,7 @@ function Index() {
                        type="number"
                        value={monthTaxFree}
                        onChange={(e) => setMonthTaxFree(parseInt(e.target.value))}
-                       placeholder="4500"/>
+                       placeholder="10"/>
               </label>
             </div>
             <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
