@@ -139,7 +139,7 @@ function Index() {
         </div>
         <div className="w-full lg:w-1/2 lg:pl-6">
           <label className="block">
-            <span className="text-gray-700">적정 프리 시급</span>
+            <span className="text-gray-700">적정 프리 시급 (1.5배)</span>
             <h1
               className="mb-4 text-5xl text-green-500 font-bold leading-tight text-left slide-in-bottom-h1">
               {expandManCurrency(freeHourRate)}
@@ -149,20 +149,20 @@ function Index() {
           <div className="flex flex-wrap -mx-3 mb-4">
             <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
               <label className="block">
-                <span className="text-gray-700">세후 시급(인센티브 포함)</span>
+                <span className="text-gray-700">세후 시급 (인센티브 포함)</span>
                 <input readOnly className="form-input mt-1 block w-full" placeholder="4500" value={expandManCurrency(actualHourRate)}/>
               </label>
             </div>
             <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
               <label className="block">
-                <span className="text-gray-700">총 근로시간(연차, 공휴일 제외)</span>
+                <span className="text-gray-700">총 근로시간 (연차, 공휴일 제외)</span>
                 <input readOnly className="form-input mt-1 block w-full" placeholder="4500" value={`${parseInt(totalWorkingHours)}시간`}/>
               </label>
             </div>
           </div>
 
           <label className="block mt-4">
-            <span className="text-gray-700">세후 월급(인센티브 제외)</span>
+            <span className="text-gray-700">세후 월급 (인센티브 제외)</span>
             <input readOnly className="form-input mt-1 block w-full" placeholder="4500" value={asMonthCurrency(currentTax.netIncome)}/>
           </label>
 
