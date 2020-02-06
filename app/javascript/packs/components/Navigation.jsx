@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import {A, usePath} from "hookrouter";
 
 function Navigation() {
-  const activeColor = (targePath) => {
+  const activeColor = (targetPath) => {
     const currentPath = usePath();
-    return currentPath === targePath ? "text-yellow-777" : "text-gray-500";
+    return currentPath === targetPath ? "text-yellow-777" : "text-gray-500";
   };
 
   return (
