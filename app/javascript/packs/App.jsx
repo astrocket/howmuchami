@@ -1,7 +1,7 @@
 import React from "react";
 import {useRoutes, A} from "hookrouter";
 import routes from "./routes";
-import HourRateContext from "./contexts/HourRateContext";
+import HourRateContext from "./contexts/hourRate.context";
 import Navigation from "./components/Navigation.jsx";
 import Footer from "./components/Footer.jsx";
 import LikeButton from "./components/LikeButton";
