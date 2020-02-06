@@ -1,6 +1,8 @@
 import { createContext } from "react";
-const HourRateContext = createContext({
+
+const hourRateContext = createContext({
   hourRate: 0,
   setCurrentHourRate: () => {}
 });
-export default HourRateContext;
+
+export default hourRateContext;

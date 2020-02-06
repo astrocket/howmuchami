@@ -1,11 +1,11 @@
 import React, {
-  useState, useEffect
+  useState, useCallback
 } from 'react';
 
 const useHourRate = () => {
   const [ hourRate, setHourRate ] = useState(0);
 
-  const setCurrentHourRate = useEffect((currentHourRate) => {
+  const setCurrentHourRate = useCallback((currentHourRate) => {
     setHourRate(currentHourRate);
   }, []);
 
