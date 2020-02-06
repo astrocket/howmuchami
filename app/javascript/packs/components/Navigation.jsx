@@ -1,22 +1,27 @@
-import React from "react";
-import {A} from "hookrouter";
+import React, { useEffect } from "react";
+import {A, usePath} from "hookrouter";
 
 function Navigation() {
+  const activeColor = (targePath) => {
+    const currentPath = usePath();
+    return currentPath === targePath ? "text-yellow-777" : "text-gray-500";
+  };
+
   return (
     <div className="w-full container mx-auto p-6">
       <div className="w-full flex items-center justify-between">
-        <a href="/"
+        <A href="/"
            className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl">
           💸💸💸
-        </a>
+        </A>
         <div className="flex flex-1 justify-end content-center">
           <A href="/"
-             className="text-sm lg:text-lg inline-block text-yellow-777 no-underline hover:text-gray-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4"
+             className={`text-sm lg:text-lg inline-block ${activeColor('/')} no-underline hover:text-yellow-777 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4`}
              data-tippy-content="@twitter_handle">
-            그냥 만든 계산기
+            시급 계산기
           </A>
           <A href="/about"
-             className="text-sm lg:text-lg inline-block text-gray-500 no-underline hover:text-yellow-777 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4"
+             className={`text-sm lg:text-lg inline-block ${activeColor('/about')} no-underline hover:text-yellow-777 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4`}
              data-tippy-content="@twitter_handle">
             만든이
           </A>
