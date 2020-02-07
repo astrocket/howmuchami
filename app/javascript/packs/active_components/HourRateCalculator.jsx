@@ -154,7 +154,7 @@ function HourRateCalculator() {
         </div>
 
         <label className="block mt-4">
-          <span className="text-gray-700">세금</span>
+          <span className="text-gray-700">월 세금</span>
           <input readOnly className="py-2 border-b outline-none mt-1 block w-full mb-4" placeholder="0" value={asMonthCurrency(currentTax.totalTax)}/>
           <div className="w-full rounded overflow-hidden leading-normal">
             <span className="block text-gray-500 text-sm">소득세: {asMonthCurrency(currentTax.incomeTax)}</span>
