@@ -18,7 +18,7 @@ function Navigation() {
           <A href="/"
              className={`text-sm lg:text-lg inline-block ${activeColor('/')} no-underline hover:text-yellow-777 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4`}
              data-tippy-content="@twitter_handle">
-            시급 계산기
+            계산기
           </A>
           <A href="/hour_rates"
              className={`text-sm lg:text-lg inline-block ${activeColor('/hour_rates')} no-underline hover:text-yellow-777 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4`}

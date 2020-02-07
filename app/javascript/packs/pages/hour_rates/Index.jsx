@@ -18,8 +18,9 @@ function Index() {
         <div className="w-full mb-4">
           <div className="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"/>
         </div>
+        <p className="text-gray-500 text-center">주 40시간 / 연차 15일 기준 (인센티브, 복지금 제외)</p>
       </div>
-      <table className="table-auto text-left">
+      <table className="table-auto text-left mx-auto">
         <thead>
         <tr>
           <th className="px-4 py-2 sticky top-0 bg-white">연봉</th>
