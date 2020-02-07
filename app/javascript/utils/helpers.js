@@ -2,6 +2,10 @@ export function currencyFormat(num) {
   return parseFloat(num).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + "원";
 }
 
+export function currencyManFormat(num) {
+  return parseFloat(num).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') + "만원";
+}
+
 export function expandManCurrency(num) {
   return currencyFormat(num * 10000)
 }
