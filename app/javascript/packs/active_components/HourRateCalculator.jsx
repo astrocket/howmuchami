@@ -129,25 +129,25 @@ function HourRateCalculator() {
           <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
             <label className="block">
               <span className="text-gray-700">세후 시급 (인센티브 포함)</span>
-              <input readOnly className="form-input mt-1 block w-full" placeholder="4500" value={expandManCurrency(actualHourRate)}/>
+              <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="4500" value={expandManCurrency(actualHourRate)}/>
             </label>
           </div>
           <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
             <label className="block">
               <span className="text-gray-700">총 근로시간 (연차, 공휴일 제외)</span>
-              <input readOnly className="form-input mt-1 block w-full" placeholder="4500" value={`${parseInt(totalWorkingHours)}시간`}/>
+              <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="4500" value={`${parseInt(totalWorkingHours)}시간`}/>
             </label>
           </div>
         </div>
 
         <label className="block mt-4">
           <span className="text-gray-700">세후 월급 (인센티브 제외)</span>
-          <input readOnly className="form-input mt-1 block w-full" placeholder="4500" value={asMonthCurrency(currentTax.netIncome)}/>
+          <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="4500" value={asMonthCurrency(currentTax.netIncome)}/>
         </label>
 
         <label className="block mt-4">
           <span className="text-gray-700">세금</span>
-          <input readOnly className="form-input mt-1 block w-full mb-4" placeholder="4500" value={asMonthCurrency(currentTax.totalTax)}/>
+          <input readOnly className="py-2 border-b outline-none mt-1 block w-full mb-4" placeholder="4500" value={asMonthCurrency(currentTax.totalTax)}/>
           <div className="w-full rounded overflow-hidden leading-normal">
             <span className="block text-gray-500 text-sm">소득세: {asMonthCurrency(currentTax.incomeTax)}</span>
             <span className="block text-gray-500 text-sm">주민세: {asMonthCurrency(currentTax.nationalTax)}</span>

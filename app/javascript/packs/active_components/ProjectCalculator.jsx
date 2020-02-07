@@ -32,7 +32,7 @@ function ProjectCalculator() {
           <div className="w-full lg:w-1/2 px-3 mb-4 md:mb-0">
             <label className="block">
               <span className="text-gray-700">기준 시급</span>
-              <input className="form-input mt-1 block w-full"
+              <input className="py-2 border-b outline-none mt-1 block w-full"
                      readOnly
                      value={expandManCurrency(hourRate)}/>
             </label>
