@@ -89,7 +89,7 @@ function HourRateCalculator() {
         <div className="flex flex-wrap -mx-3 mb-4">
           <div className="w-full lg:w-1/2 px-3 mb-4 md:mb-0">
             <label className="block">
-              <span className="text-gray-700">주 평균시간 (야근포함 실 근로시간)</span>
+              <span className="text-gray-700">주 평균 근로시간 (야근포함)</span>
               <input className="form-input mt-1 block w-full"
                      type="number"
                      value={weeklyHours}
