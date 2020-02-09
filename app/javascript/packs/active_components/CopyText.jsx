@@ -1,3 +1,7 @@
+// <CopyText
+//   clipboardText={`${window.location.origin}?yi=${yearIncome}&wi=${welfareIncome}&mt=${monthTaxFree}&ii=${incentiveIncome}&wh=${weeklyHours}&vd=${vacationDays}`}
+// buttonText={"링크공유"}
+// buttonClass={"text-gray-700 cursor-pointer hover:text-yellow-500"}/>
 import React, {useEffect, useRef} from "react";
 import ClipboardJS from 'clipboard';
 

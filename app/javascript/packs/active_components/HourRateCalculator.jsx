@@ -126,10 +126,6 @@ function HourRateCalculator() {
         <label className="block">
           <div className="flex justify-between">
             <span className="text-gray-700">적정 프리 시급 (1.5배)</span>
-            <CopyText
-              clipboardText={`${window.location.origin}?yi=${yearIncome}&wi=${welfareIncome}&mt=${monthTaxFree}&ii=${incentiveIncome}&wh=${weeklyHours}&vd=${vacationDays}`}
-              buttonText={"링크공유"}
-              buttonClass={"text-gray-700 cursor-pointer hover:text-yellow-500"}/>
           </div>
           <h1
             className="mb-4 text-5xl text-green-500 font-bold leading-tight text-left slide-in-bottom-h1">
