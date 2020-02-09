@@ -1,24 +1,32 @@
-import React, { useEffect, useState, useContext } from "react";
-import { Tax } from "utils/tax";
+import React, {useEffect, useState, useContext} from "react";
+import {Tax} from "utils/tax";
+import { useQueryParams } from "hookrouter";
 import {
-  log, currencyFormat, asMonthCurrency, expandManCurrency
+  log, currencyFormat, asMonthCurrency, expandManCurrency, safeInt
 } from "utils/helpers";
 import hourRateContext from "../contexts/hourRate.context";
+import CopyText from "./CopyText";
 
 function HourRateCalculator() {
-  const [yearIncome, setYearIncome] = useState(3000);
-  const [welfareIncome, setWelfareIncome] = useState(60);
-  const [incentiveIncome, setIncentiveIncome] = useState(300);
-  const [monthTaxFree, setMonthTaxFree] = useState(10);
-  const [weeklyHours, setWeeklyHours] = useState(40);
-  const [vacationDays, setVacationDays] = useState(15);
+  const [queryParams] = useQueryParams();
+
+  const {
+    yi, ii, wi, mt, wh, vd
+  } = queryParams;
+
+  const [yearIncome, setYearIncome] = useState(safeInt(yi, 3000));
+  const [incentiveIncome, setIncentiveIncome] = useState(safeInt(ii, 300));
+  const [welfareIncome, setWelfareIncome] = useState(safeInt(wi, 60));
+  const [monthTaxFree, setMonthTaxFree] = useState(safeInt(mt, 10));
+  const [weeklyHours, setWeeklyHours] = useState(safeInt(wh, 40));
+  const [vacationDays, setVacationDays] = useState(safeInt(vd, 15));
   const [currentTax, setCurrentTax] = useState(new Tax(0, 0));
 
   const [actualHourRate, setActualHourRate] = useState(9000);
   const [totalWorkingHours, setTotalWorkingHours] = useState(0);
   const nationalVacations = 13;
 
-  const { hourRate, setCurrentHourRate } = useContext(hourRateContext);
+  const {hourRate, setCurrentHourRate} = useContext(hourRateContext);
 
   useEffect(() => {
     const tax = new Tax((yearIncome || 0) + (welfareIncome || 0) + (incentiveIncome || 0), (monthTaxFree || 0) * 12);
@@ -45,8 +53,8 @@ function HourRateCalculator() {
               <input className="form-input mt-1 block w-full"
                      type="number"
                      value={yearIncome}
-                     onChange={(e) => setYearIncome(parseInt(e.target.value))}
-                     placeholder="4500"/>
+                     onChange={(e) => setYearIncome(safeInt(e.target.value, ""))}
+                     placeholder="3000"/>
             </label>
           </div>
           <div className="w-full lg:w-1/2 px-3 mb-4 md:mb-0">
@@ -55,7 +63,7 @@ function HourRateCalculator() {
               <input className="form-input mt-1 block w-full"
                      type="number"
                      value={incentiveIncome}
-                     onChange={(e) => setIncentiveIncome(parseInt(e.target.value))}
+                     onChange={(e) => setIncentiveIncome(safeInt(e.target.value, ""))}
                      placeholder="300"/>
             </label>
           </div>
@@ -68,7 +76,7 @@ function HourRateCalculator() {
               <input className="form-input mt-1 block w-full"
                      type="number"
                      value={monthTaxFree}
-                     onChange={(e) => setMonthTaxFree(parseInt(e.target.value))}
+                     onChange={(e) => setMonthTaxFree(safeInt(e.target.value, ""))}
                      placeholder="10"/>
             </label>
           </div>
@@ -78,7 +86,7 @@ function HourRateCalculator() {
               <input className="form-input mt-1 block w-full"
                      type="number"
                      value={welfareIncome}
-                     onChange={(e) => setWelfareIncome(parseInt(e.target.value))}
+                     onChange={(e) => setWelfareIncome(safeInt(e.target.value, ""))}
                      placeholder="60"/>
             </label>
           </div>
@@ -91,7 +99,7 @@ function HourRateCalculator() {
               <input className="form-input mt-1 block w-full"
                      type="number"
                      value={weeklyHours}
-                     onChange={e => setWeeklyHours(parseInt(e.target.value))}
+                     onChange={e => setWeeklyHours(safeInt(e.target.value, ""))}
                      placeholder="40"/>
             </label>
           </div>
@@ -101,7 +109,7 @@ function HourRateCalculator() {
               <input className="form-input mt-1 block w-full"
                      type="number"
                      value={vacationDays}
-                     onChange={e => setVacationDays(parseInt(e.target.value))}
+                     onChange={e => setVacationDays(safeInt(e.target.value, ""))}
                      placeholder="7"/>
             </label>
           </div>
@@ -116,7 +124,13 @@ function HourRateCalculator() {
       </div>
       <div className="w-full lg:w-1/2 lg:pl-6">
         <label className="block">
-          <span className="text-gray-700">적정 프리 시급 (1.5배)</span>
+          <div className="flex justify-between">
+            <span className="text-gray-700">적정 프리 시급 (1.5배)</span>
+            <CopyText
+              clipboardText={`${window.location.origin}?yi=${yearIncome}&wi=${welfareIncome}&mt=${monthTaxFree}&ii=${incentiveIncome}&wh=${weeklyHours}&vd=${vacationDays}`}
+              buttonText={"링크공유"}
+              buttonClass={"text-gray-700 cursor-pointer hover:text-yellow-500"}/>
+          </div>
           <h1
             className="mb-4 text-5xl text-green-500 font-bold leading-tight text-left slide-in-bottom-h1">
             {expandManCurrency(hourRate)}
@@ -127,13 +141,15 @@ function HourRateCalculator() {
           <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
             <label className="block">
               <span className="text-gray-700">세후 시급</span>
-              <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="0" value={expandManCurrency(actualHourRate)}/>
+              <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="0"
+                     value={expandManCurrency(actualHourRate)}/>
             </label>
           </div>
           <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
             <label className="block">
               <span className="text-gray-700">예상 근로시간 (휴가, 공휴일 제외)</span>
-              <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="0" value={`${parseInt(totalWorkingHours)}시간`}/>
+              <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="0"
+                     value={`${safeInt(totalWorkingHours, "")}시간`}/>
             </label>
           </div>
         </div>
@@ -142,20 +158,23 @@ function HourRateCalculator() {
           <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
             <label className="block">
               <span className="text-gray-700">세후 월급</span>
-              <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="0" value={asMonthCurrency(currentTax.netIncome)}/>
+              <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="0"
+                     value={asMonthCurrency(currentTax.netIncome)}/>
             </label>
           </div>
           <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
             <label className="block">
               <span className="text-gray-700">세후 연봉</span>
-              <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="0" value={expandManCurrency(currentTax.netIncome)}/>
+              <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="0"
+                     value={expandManCurrency(currentTax.netIncome)}/>
             </label>
           </div>
         </div>
 
         <label className="block mt-4">
           <span className="text-gray-700">월 세금</span>
-          <input readOnly className="py-2 border-b outline-none mt-1 block w-full mb-4" placeholder="0" value={asMonthCurrency(currentTax.totalTax)}/>
+          <input readOnly className="py-2 border-b outline-none mt-1 block w-full mb-4" placeholder="0"
+                 value={asMonthCurrency(currentTax.totalTax)}/>
           <div className="w-full rounded overflow-hidden leading-normal">
             <span className="block text-gray-500 text-sm">소득세: {asMonthCurrency(currentTax.incomeTax)}</span>
             <span className="block text-gray-500 text-sm">주민세: {asMonthCurrency(currentTax.nationalTax)}</span>
