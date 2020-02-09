@@ -5,7 +5,6 @@ import {
   log, currencyFormat, asMonthCurrency, expandManCurrency, safeInt
 } from "utils/helpers";
 import hourRateContext from "../contexts/hourRate.context";
-import CopyText from "./CopyText";
 
 function HourRateCalculator() {
   const [queryParams] = useQueryParams();
