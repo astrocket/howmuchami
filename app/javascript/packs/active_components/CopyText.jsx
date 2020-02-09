@@ -13,7 +13,6 @@ function CopyText({clipboardText, buttonText, buttonClass}) {
   }, []);
 
   const onClickCopy = (e) => {
-    console.log(e.target, targetText.current);
     const prevText = targetText.current.innerText;
     targetText.current.disabled = true;
     targetText.current.innerText = "✅복사됨";
