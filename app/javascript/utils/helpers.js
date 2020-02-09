@@ -17,3 +17,7 @@ export function asMonthCurrency(num_per_year) {
 export function log(...args) {
   return console.log(args);
 }
+
+export function safeInt(string, defaultInt = 0) {
+  return parseInt(string) || defaultInt;
+}
