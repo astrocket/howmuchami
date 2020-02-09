@@ -23,7 +23,7 @@ function Navigation() {
           <A href="/hour_rates"
              className={`text-sm lg:text-lg inline-block ${activeColor('/hour_rates')} no-underline hover:text-yellow-777 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4`}
              data-tippy-content="@twitter_handle">
-            2020
+            남의시급
           </A>
           <A href="/about"
              className={`text-sm lg:text-lg inline-block ${activeColor('/about')} no-underline hover:text-yellow-777 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4`}
