@@ -23,11 +23,11 @@ function Index() {
       <table className="table-auto text-left mx-auto">
         <thead>
         <tr>
-          <th className="px-4 py-2 sticky top-0 bg-white">연봉</th>
-          <th className="px-4 py-2 sticky top-0 bg-white">세후 시급</th>
-          <th className="px-4 py-2 sticky top-0 bg-white">세후 연봉</th>
-          <th className="px-4 py-2 sticky top-0 bg-white">세후 월급</th>
-          <th className="px-4 py-2 sticky top-0 bg-white">월 세금</th>
+          <th className="px-4 py-2 sticky top-0 bg-white text-xs lg:text-base">연봉</th>
+          <th className="px-4 py-2 sticky top-0 bg-white text-xs lg:text-base">세후 시급</th>
+          <th className="px-4 py-2 sticky top-0 bg-white text-xs lg:text-base">세후 연봉</th>
+          <th className="px-4 py-2 sticky top-0 bg-white text-xs lg:text-base">세후 월급</th>
+          <th className="px-4 py-2 sticky top-0 bg-white text-xs lg:text-base">월 세금</th>
           <th className="hidden lg:table-cell px-4 py-2 sticky top-0 bg-white">세금상세</th>
         </tr>
         </thead>
