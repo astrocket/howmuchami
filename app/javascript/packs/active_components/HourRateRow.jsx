@@ -3,7 +3,7 @@ import {Tax} from "utils/tax";
 import {
   log, currencyFormat, asMonthCurrency, expandManCurrency, currencyManFormat
 } from "utils/helpers";
-import hourRateContext from "../contexts/hourRate.context";
+import hourRateContext from "../contexts/krwRate.context";
 
 function HourRateRow({yearIncome, even}) {
   const [currentTax, setCurrentTax] = useState(new Tax(1000, 0));

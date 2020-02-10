@@ -3,7 +3,7 @@ import { Tax } from "utils/tax";
 import {
   log, currencyFormat, asMonthCurrency, expandManCurrency
 } from "utils/helpers";
-import hourRateContext from "../contexts/hourRate.context";
+import hourRateContext from "../contexts/krwRate.context";
 
 function ProjectCalculator() {
   const projectHoursPerDay = 7;

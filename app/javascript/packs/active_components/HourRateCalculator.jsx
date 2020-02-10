@@ -4,7 +4,7 @@ import { useQueryParams } from "hookrouter";
 import {
   log, currencyFormat, asMonthCurrency, expandManCurrency, safeInt
 } from "utils/helpers";
-import hourRateContext from "../contexts/hourRate.context";
+import krwRateContext from "../contexts/krwRate.context";
 
 function HourRateCalculator() {
   const [queryParams] = useQueryParams();
@@ -25,7 +25,7 @@ function HourRateCalculator() {
   const [totalWorkingHours, setTotalWorkingHours] = useState(0);
   const nationalVacations = 13;
 
-  const {hourRate, setCurrentHourRate} = useContext(hourRateContext);
+  const {hourRate, setCurrentHourRate, monthRate, setCurrentMonthRate} = useContext(krwRateContext);
 
   useEffect(() => {
     const tax = new Tax((yearIncome || 0) + (welfareIncome || 0) + (incentiveIncome || 0), (monthTaxFree || 0) * 12);
@@ -40,6 +40,7 @@ function HourRateCalculator() {
     setTotalWorkingHours(yearHours);
     setActualHourRate(incomePerHour);
     setCurrentHourRate(incomePerHour * 1.5);
+    setCurrentMonthRate(currentTax.netIncome/12);
   }, [currentTax, weeklyHours, vacationDays]);
 
   return (

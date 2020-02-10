@@ -3,11 +3,13 @@ import React, {
 } from "react";
 import { log, currencyFormat, asMonthCurrency, expandManCurrency} from "utils/helpers";
 import HourRateCalculator from "../../active_components/HourRateCalculator";
+import FireCalculator from "../../active_components/FireCalculator";
 
 function Index() {
   return (
     <div className="container mx-auto">
       <HourRateCalculator/>
+      <FireCalculator/>
       <div className="pt-12 md:pt-24 px-6">
         <h3 className="mb-2 text-lg">참고 자료</h3>
         <ul>
