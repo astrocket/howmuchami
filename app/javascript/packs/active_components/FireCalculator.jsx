@@ -8,6 +8,8 @@ import {
 import krwRateContext from "../contexts/krwRate.context";
 
 function FireCalculator() {
+  const dobieMonths = Array.from(Array(60).keys()).map((i) => i+1);
+
   const [currentMonthExpense, setCurrentMonthExpense] = useState(150);
   const [currentAsset, setCurrentAsset] = useState(1000);
   const [futureMonthRate, setFutureMonthRate] = useState(300);
@@ -21,6 +23,10 @@ function FireCalculator() {
   const {
     hourRate, monthRate
   } = useContext(krwRateContext);
+
+  function monthRatePerEpisode(episode, monthRate) {
+    return monthRate * (1.005 ** episode);
+  }
 
   useEffect(() => {
     setFuckYouMoney((futureMonthRate || 0) * 12 * 25)
@@ -142,6 +148,30 @@ function FireCalculator() {
             </h1>
           </label>
         </div>
+      </div>
+      <div className="pt-12 md:pt-24 px-6">
+        <table className="table-auto text-left">
+          <thead>
+          <tr>
+            <th className="px-4 py-2 sticky top-0 bg-white text-xs lg:text-base">회차</th>
+            <th className="px-4 py-2 sticky top-0 bg-white text-xs lg:text-base">월 급여 소득</th>
+            <th className="px-4 py-2 sticky top-0 bg-white text-xs lg:text-base">총 자산</th>
+            <th className="px-4 py-2 sticky top-0 bg-white text-xs lg:text-base">총 투자 소득</th>
+          </tr>
+          </thead>
+          <tbody>
+          {
+            dobieMonths.map((value, index) => {
+              return (
+                <tr key={`${index}DobieMonth`}>
+                  <td className="border p-2 lg:px-4 lg:py-2 text-xs lg:text-base">{value}</td>
+                  <td className="border p-2 lg:px-4 lg:py-2 text-xs lg:text-base">{currencyManFormat(monthRatePerEpisode(value, monthRate))}</td>
+                </tr>
+              )
+            })
+          }
+          </tbody>
+        </table>
       </div>
     </div>
   )
