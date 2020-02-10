@@ -149,7 +149,7 @@ function FireCalculator() {
           </label>
         </div>
       </div>
-      <div className="pt-12 md:pt-24 px-6">
+      <div className="mt-12 md:mt-24 px-6 h-64 overflow-scroll">
         <table className="table-auto text-left">
           <thead>
           <tr>
