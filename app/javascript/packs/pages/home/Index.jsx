@@ -9,7 +9,7 @@ function Index() {
   return (
     <div className="container mx-auto">
       <HourRateCalculator/>
-      <FireCalculator/>
+      {/*<FireCalculator/>*/}
       <div className="pt-12 md:pt-24 px-6">
         <h3 className="mb-2 text-lg">참고 자료</h3>
         <ul>
