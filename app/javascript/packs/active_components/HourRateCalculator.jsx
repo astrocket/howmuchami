@@ -4,7 +4,7 @@ import { useQueryParams } from "hookrouter";
 import {
   log, currencyFormat, asMonthCurrency, expandManCurrency, safeInt
 } from "utils/helpers";
-import hourRateContext from "../contexts/hourRate.context";
+import krwRateContext from "../contexts/krwRate.context";
 
 function HourRateCalculator() {
   const [queryParams] = useQueryParams();
@@ -25,7 +25,7 @@ function HourRateCalculator() {
   const [totalWorkingHours, setTotalWorkingHours] = useState(0);
   const nationalVacations = 13;
 
-  const {hourRate, setCurrentHourRate} = useContext(hourRateContext);
+  const {hourRate, setCurrentHourRate, monthRate, setCurrentMonthRate} = useContext(krwRateContext);
 
   useEffect(() => {
     const tax = new Tax((yearIncome || 0) + (welfareIncome || 0) + (incentiveIncome || 0), (monthTaxFree || 0) * 12);
@@ -40,6 +40,7 @@ function HourRateCalculator() {
     setTotalWorkingHours(yearHours);
     setActualHourRate(incomePerHour);
     setCurrentHourRate(incomePerHour * 1.5);
+    setCurrentMonthRate(currentTax.netIncome/12);
   }, [currentTax, weeklyHours, vacationDays]);
 
   return (
@@ -124,30 +125,13 @@ function HourRateCalculator() {
       <div className="w-full lg:w-1/2 lg:pl-6">
         <label className="block">
           <div className="flex justify-between">
-            <span className="text-gray-700">적정 프리 시급 (1.5배)</span>
+            <span className="text-gray-700">내 시급</span>
           </div>
           <h1
             className="mb-4 text-5xl text-green-500 font-bold leading-tight text-left slide-in-bottom-h1">
-            {expandManCurrency(hourRate)}
+            {expandManCurrency(actualHourRate)}
           </h1>
         </label>
-
-        <div className="flex flex-wrap -mx-3 mb-4">
-          <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
-            <label className="block">
-              <span className="text-gray-700">세후 시급</span>
-              <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="0"
-                     value={expandManCurrency(actualHourRate)}/>
-            </label>
-          </div>
-          <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
-            <label className="block">
-              <span className="text-gray-700">예상 근로시간 (휴가, 공휴일 제외)</span>
-              <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="0"
-                     value={`${safeInt(totalWorkingHours, "")}시간`}/>
-            </label>
-          </div>
-        </div>
 
         <div className="flex flex-wrap -mx-3 mb-4">
           <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
@@ -166,10 +150,24 @@ function HourRateCalculator() {
           </div>
         </div>
 
+        <div className="flex flex-wrap -mx-3 mb-4">
+          <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
+            <label className="block">
+              <span className="text-gray-700">월 세금</span>
+              <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="0"
+                     value={asMonthCurrency(currentTax.totalTax)}/>
+            </label>
+          </div>
+          <div className="w-full lg:w-1/2 px-3 mb-6 md:mb-0">
+            <label className="block">
+              <span className="text-gray-700">예상 근로시간 (휴가, 공휴일 제외)</span>
+              <input readOnly className="py-2 border-b outline-none mt-1 block w-full" placeholder="0"
+                     value={`${safeInt(totalWorkingHours, "")}시간`}/>
+            </label>
+          </div>
+        </div>
+
         <label className="block mt-4">
-          <span className="text-gray-700">월 세금</span>
-          <input readOnly className="py-2 border-b outline-none mt-1 block w-full mb-4" placeholder="0"
-                 value={asMonthCurrency(currentTax.totalTax)}/>
           <div className="w-full rounded overflow-hidden leading-normal">
             <span className="block text-gray-500 text-sm">소득세: {asMonthCurrency(currentTax.incomeTax)}</span>
             <span className="block text-gray-500 text-sm">주민세: {asMonthCurrency(currentTax.nationalTax)}</span>
