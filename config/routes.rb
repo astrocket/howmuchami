@@ -16,6 +16,8 @@ Rails.application.routes.draw do
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   end
 
+  get 'health_check', to: 'home#health_check'
+
   # To render react packs for any path except app/api 
   scope '/:path', constraints: { path: /(?!app|api).+/ } do
     get '/' => 'react#index', as: :react # react_path
@@ -26,7 +28,5 @@ Rails.application.routes.draw do
   %w( 404 422 500 ).each do |code|
     get code, :to => "errors#show", :code => code
   end
-
-  get 'health_check', to: 'home#health_check'
 
 end

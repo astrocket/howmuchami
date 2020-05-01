@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - howmuchami.cc
+        - howmuchami.com
       secretName: howmuchami-tls
   rules:
-    - host: howmuchami.cc
+    - host: howmuchami.com
       http:
         paths:
           - path: /
@@ -103,10 +103,10 @@ spec:
           resources:
             requests:
               cpu: 50m
-              memory: 300Mi
+              memory: 200Mi
             limits:
               cpu: 50m
-              memory: 300Mi
+              memory: 200Mi
           volumeMounts:
             - mountPath: /assets
               name: assets
