@@ -62,8 +62,6 @@ spec:
               value: "true"
             - name: RAILS_SERVE_STATIC_FILES
               value: "true"
-            - name: REDIS_URL
-              value: # REDIS_URL
             - name: DEPLOY_VERSION
               value: "1"
             - name: RAILS_MASTER_KEY
