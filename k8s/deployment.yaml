@@ -76,10 +76,10 @@ spec:
             - containerPort: 3000
           resources:
             requests:
-              cpu: 200m
+              cpu: 100m
               memory: 500Mi
             limits:
-              cpu: 200m
+              cpu: 100m
               memory: 500Mi
           readinessProbe:
             httpGet:
@@ -102,10 +102,10 @@ spec:
             - containerPort: 80
           resources:
             requests:
-              cpu: 150m
+              cpu: 50m
               memory: 300Mi
             limits:
-              cpu: 150m
+              cpu: 50m
               memory: 300Mi
           volumeMounts:
             - mountPath: /assets
